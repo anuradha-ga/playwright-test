@@ -42,7 +42,7 @@ test('cart shows correct items after adding', async ({ page }) => {
 });
 
 test('sort items by price low to high', async ({ page }) => {
-    await page.locator('[data-test="product_sort_container"]').selectOption('lohi');
+    await page.locator('.product_sort_container').selectOption('lohi');
     const firstPrice = await page.locator('.inventory_item_price').first().textContent();
     const lastPrice = await page.locator('.inventory_item_price').last().textContent();
     expect(firstPrice).toBe('$7.99');
