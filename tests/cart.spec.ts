@@ -30,3 +30,21 @@ test('remove one item from cart shows badge count', async ({ page }) => {
     await page.locator('.inventory_item', {hasText: 'Sauce Labs Bike Light'}).getByRole('button', { name: 'Remove' }).click();
     await expect(page.locator('.shopping_cart_badge')).toHaveText('1');
 });
+
+test('cart shows correct items after adding', async ({ page }) => {
+    await page.locator('.inventory_item', {hasText: 'Sauce Labs Bike Light'}).getByRole('button', { name: 'Add to cart' }).click();
+    await page.locator('.inventory_item', {hasText: 'Sauce Labs Backpack'}).getByRole('button', { name: 'Add to cart' }).click();
+    await expect(page.locator('.shopping_cart_badge')).toHaveText('2');
+    await page.locator('.shopping_cart_link').click();
+    await expect(page.locator('.cart_item')).toHaveCount(2);
+    await expect(page.locator('.cart_item', {hasText: 'Sauce Labs Bike Light'})).toBeVisible();
+    await expect(page.locator('.cart_item', {hasText: 'Sauce Labs Backpack'})).toBeVisible();
+});
+
+test('sort items by price low to high', async ({ page }) => {
+    await page.locator('[data-test="product_sort_container"]').selectOption('lohi');
+    const firstPrice = await page.locator('.inventory_item_price').first().textContent();
+    const lastPrice = await page.locator('.inventory_item_price').last().textContent();
+    expect(firstPrice).toBe('$7.99');
+    expect(lastPrice).toBe('$49.99');
+});
