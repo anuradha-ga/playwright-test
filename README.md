@@ -1,10 +1,6 @@
 # Playwright Test Automation Practice
 
-Learning project for test automation using [Playwright](https://playwright.dev/) with TypeScript. Tests are written against [saucedemo.com](https://www.saucedemo.com/), a public demo e-commerce site made for practicing automation.
-
-## Background
-
-I'm a manual QA engineer learning automated testing. This repo tracks that process — real tests, written and debugged from scratch, covering common flows I'd normally test manually.
+Learning project for test automation using [Playwright](https://playwright.dev/) with TypeScript. Tests are written against [saucedemo.com](https://www.saucedemo.com/) for practicing.
 
 ## What's covered
 
