@@ -19,6 +19,7 @@ Learning project for test automation using [Playwright](https://playwright.dev/)
 
 - [Playwright Test](https://playwright.dev/docs/intro) (TypeScript)
 - GitHub Actions for CI — tests run automatically on every push
+- Tests use the Page Object Model (pages/LoginPage.ts, pages/InventoryPage.ts) for reusable selectors
 
 ## Running locally
 
