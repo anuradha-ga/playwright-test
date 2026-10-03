@@ -3,6 +3,10 @@ import { Page } from '@playwright/test';
 export class InventoryPage {
   constructor(private page: Page) {}
 
+  async goto() {
+    await this.page.goto('https://www.saucedemo.com/inventory.html');
+  }
+
   async addToCart(productName: string) {
     await this.page
       .locator('.inventory_item', { hasText: productName })
